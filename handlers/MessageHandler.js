@@ -1476,8 +1476,8 @@ class MessageHandler
 
     checkImage(msg)
     {
-        console.log(msg.attachemnts.map(a => a.proxyURL));
-        
+        console.log(msg.attachments.map(a => a.proxyURL));
+
         let attach_arr = msg.attachments.array();
         let attach_arr_len = attach_arr.length;
 
