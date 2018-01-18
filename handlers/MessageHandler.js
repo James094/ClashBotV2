@@ -1566,7 +1566,7 @@ class MessageHandler
 
             const embed = new Discord.RichEmbed()
               .setDescription('Our bot has detected you sending inappropriate media!\nPlease remember the Corporate Clash rules.\n')
-              .setAuthor(msg.author, this.getAvatar(msg))
+              .setAuthor(msg.author, this.getAvatar(msg.author.id))
 
               .setColor('#FF0000')
               .setFooter("© Corporate Clash 2017-2018")
