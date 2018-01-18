@@ -1476,16 +1476,14 @@ class MessageHandler
 
     checkImage(msg)
     {
-        console.log(msg.attachments.map(a => a.proxyURL));
 
-        let attach_arr = msg.attachments.array();
+        let attach_arr = msg.attachments.map(i => i.proxyURL);
         let attach_arr_len = attach_arr.length;
 
-        let embed_arr = msg.embeds;
+        let embed_arr = msg.embeds.map(i => i.thumbnail.proxyURL);
         let embed_arr_len = embed_arr.length;
 
         let filters = ['VERY_LIKELY', 'LIKELY'];
-        this.img_check = 0;
 
         var url_arr = [];
 
@@ -1493,9 +1491,7 @@ class MessageHandler
         {
             for (let i = 0; i < embed_arr_len; i++)
             {
-                let p_url = embed_arr[i].thumbnail.proxyURL;
-
-                url_arr.push(p_url);
+                url_arr.push(embed_arr[i]);
             }
         }
 
@@ -1504,9 +1500,7 @@ class MessageHandler
         {
             for (let i = 0; i < attach_arr_len; i++)
             {
-                let p_url = attach_arr[i].proxyURL;
-
-                url_arr.push(p_url);
+                url_arr.push(attach_arr[i]);
             }
         }
 
