@@ -1521,6 +1521,8 @@ class MessageHandler
 
                     if (detections !== null)
                     {
+                        console.log(detections);
+                        
                         if (filters.includes(detections.adult) == true)
                         {
                             check.push('adult');
