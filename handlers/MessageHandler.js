@@ -1476,8 +1476,11 @@ class MessageHandler
 
     checkImage(msg)
     {
+        console.log(msg.attachemnts.map(a => a.proxyURL));
+        
         let attach_arr = msg.attachments.array();
         let attach_arr_len = attach_arr.length;
+
         let embed_arr = msg.embeds;
         let embed_arr_len = embed_arr.length;
 
@@ -1522,7 +1525,7 @@ class MessageHandler
                     if (detections !== null)
                     {
                         console.log(detections);
-                        
+
                         if (filters.includes(detections.adult) == true)
                         {
                             check.push('adult');
