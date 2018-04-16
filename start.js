@@ -4,6 +4,7 @@ global.Config   = require('./conf/main.json');
 global.readline = require('readline');
 global.Logger   = require('./lib/Logger');
 global.Database = require('./lib/Database');
+global.WebSocket = require('./lib/WebSocket');
 global.Colors   = require('colors');
 global.Discord  = require('discord.js');
 global.Bot      = require('./bot');
@@ -64,8 +65,25 @@ const startBot = async() =>
 
 }
 
+const startWSConnection = async() =>
+{
+    try
+    {
+        // Start Connection
+        global.WebSocket = new WebSocket(this);
+        await WebSocket.start();
+        global.WebSocket = WebSocket.connection;
+    }
+    catch(err)
+    {
+        Logger.error(err);
+    }
+
+}
+
 startDatabase();
 startWebServer();
+startWSConnection();
 startBot();
 
 // Error handling;
