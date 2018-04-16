@@ -62,6 +62,11 @@ class MessageHandler
             await process.exit();
         }
 
+        if ((msg === '-searchUser') && (Config.Server.Admins.includes(uid)))
+        {
+            WebSocket.sendPacket('queryUser', ['xeano@yandex.com']);
+        }
+
         if ((msg === '-update') && (Config.Server.Admins.includes(uid)))
         {
 

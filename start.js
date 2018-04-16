@@ -73,7 +73,6 @@ const startWSConnection = async() =>
         // Start Connection
         global.WebSocket = new WebSocket(this);
         await WebSocket.start();
-        global.WebSocket = WebSocket.connection;
     }
     catch(err)
     {
