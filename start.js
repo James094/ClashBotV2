@@ -25,6 +25,7 @@ const startDatabase = async () =>
 {
     try
     {
+        // Start Databasing
         global.Database = new Database(this);
         await Database.start();
         global.Database = Database.db;
@@ -39,7 +40,7 @@ const startWebServer = async() =>
 {
     try
     {
-        // Start Bot
+        // Start Express Server
         var server = new Server();
         await server.start();
     }
